@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Colors - hex only for proper Tailwind utility generation */
+  --color-obsidian: #0D0D0E;
+  --color-slate: #242426;
+  --color-sage: #8BA88E;
+  --color-sage-dim: #6b8a6e;
+  --color-paper: #FBFBF9;
+  --color-mist: #EBEAE4;
+  --color-charcoal: #1A1C1E;
+  --color-elevated: #1a1a1c;
+  --color-txt-secondary: #a0a0a3;
+  --color-txt-muted: #6b6b6e;
+
+  /* Fonts */
+  --font-serif: 'DM Serif Display', 'Georgia', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ===== Non-theme custom properties (for CSS-only use) ===== */
+:root {
+  --sage-glow: rgba(139, 168, 142, 0.15);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-medium: rgba(255, 255, 255, 0.1);
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-obsidian);
+  color: var(--color-paper);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  color: inherit;
+}
+
+::selection {
+  background: var(--color-sage);
+  color: var(--color-obsidian);
+}

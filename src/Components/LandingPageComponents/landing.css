@@ -1,0 +1,63 @@
+/* ===================================================================
+   AURA STUDIO – Minimal CSS (Tailwind handles layout/spacing/color)
+   =================================================================== */
+
+@keyframes bounceChevron {
+  0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.5; }
+  50% { transform: rotate(45deg) translateY(6px); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 168, 142, 0); }
+  50% { box-shadow: 0 0 20px 4px rgba(139, 168, 142, 0.15); }
+}
+
+.animate-bounce-chevron { animation: bounceChevron 2s ease-in-out infinite; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+/* Vision gradients */
+.vision-gradient-top {
+  position: absolute; top: 0; left: 0; right: 0; height: 120px;
+  background: linear-gradient(to bottom, var(--color-obsidian), var(--color-elevated));
+  pointer-events: none;
+}
+.vision-gradient-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+  background: linear-gradient(to top, var(--color-obsidian), var(--color-elevated));
+  pointer-events: none;
+}
+
+/* Manifesto divider */
+.manifesto-divider {
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(to right, transparent, var(--border-medium), transparent);
+}
+
+/* Comparison slider */
+.comparison-slider { cursor: ew-resize; user-select: none; }
+
+/* Code syntax colors */
+.code-kw { color: #c792ea; }
+.code-fn { color: #82aaff; }
+.code-str { color: #c3e88d; }
+.code-cm { color: #546e7a; }
+.code-num { color: #f78c6c; }
+
+/* Footer divider */
+.footer-divider { width: 60px; height: 1px; background: var(--border-medium); margin: 0 auto 80px; }
+
+/* Scrollbar */
+.chat-scrollbar::-webkit-scrollbar { width: 4px; }
+.chat-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.chat-scrollbar::-webkit-scrollbar-thumb { background: var(--border-medium); border-radius: 2px; }
+
+/* macOS dots */
+.dot-red { background: #ff5f57; }
+.dot-yellow { background: #febc2e; }
+.dot-green { background: #28c840; }
