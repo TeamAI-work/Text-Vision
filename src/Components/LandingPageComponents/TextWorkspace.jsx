@@ -38,55 +38,25 @@ export default function TextWorkspace() {
 
             <div className="p-4 flex flex-col gap-4 max-h-[480px] overflow-y-auto chat-scrollbar">
               <div className="flex gap-2.5 items-start flex-row-reverse">
-                <div className="w-6 h-6 rounded-full shrink-0 flex items-center justify-center text-[10px] font-semibold bg-white/5 text-txt-secondary">Y</div>
+                <div className="w-6 h-6 rounded-full shrink-0 flex items-center justify-center text-[10px] font-semibold bg-[var(--overlay-medium)] text-txt-secondary">Y</div>
                 <div className="px-3.5 py-2.5 rounded-2xl text-[13px] leading-relaxed max-w-[85%] bg-sage/10 text-paper border border-sage/15">
-                  Explain the transformer attention mechanism and show me a clean implementation.
+                  Explain the core concept behind the transformer attention mechanism.
                 </div>
               </div>
 
               <div className="flex gap-2.5 items-start">
                 <div className="w-6 h-6 rounded-full shrink-0 flex items-center justify-center text-[10px] font-semibold bg-[var(--sage-glow)] text-sage border border-sage/30">A</div>
-                <div className="px-3.5 py-2.5 rounded-2xl text-[13px] leading-relaxed max-w-[85%] bg-white/[0.03] text-paper border border-[var(--border-subtle)]">
-                  <p>The self-attention mechanism computes weighted relationships between all positions in a sequence:</p>
+                <div className="px-3.5 py-2.5 rounded-2xl text-[13px] leading-relaxed max-w-[85%] bg-[var(--overlay-subtle)] text-paper border border-[var(--border-subtle)]">
+                  <p>The self-attention mechanism computes weighted relationships between all positions in a sequence, allowing the model to dynamically focus on the most relevant parts of the input context.</p>
 
-                  <div className="mt-2 text-[11px] mb-1 bg-obsidian rounded-xl border border-[var(--border-subtle)] overflow-hidden">
-                    <div className="px-3 py-1.5 text-[10px] text-txt-muted border-b border-[var(--border-subtle)] flex items-center justify-between">
-                      <span>python</span>
-                      <span className="cursor-pointer hover:text-txt-secondary transition-colors">copy</span>
-                    </div>
-                    <pre className="p-3 font-mono text-[11px] leading-relaxed text-txt-secondary overflow-x-auto">
-<span className="code-kw">import</span> torch{'\n'}
-<span className="code-kw">import</span> torch.nn <span className="code-kw">as</span> nn{'\n'}
-{'\n'}
-<span className="code-kw">class</span> <span className="code-fn">SelfAttention</span>(nn.Module):{'\n'}
-    <span className="code-kw">def</span> <span className="code-fn">__init__</span>(self, d_model, n_heads):{'\n'}
-        <span className="code-fn">super</span>().__init__(){'\n'}
-        self.n_heads = n_heads{'\n'}
-        self.d_k = d_model // n_heads{'\n'}
-        self.W_q = nn.Linear(d_model, d_model){'\n'}
-        self.W_k = nn.Linear(d_model, d_model){'\n'}
-        self.W_v = nn.Linear(d_model, d_model){'\n'}
-{'\n'}
-    <span className="code-kw">def</span> <span className="code-fn">forward</span>(self, x):{'\n'}
-        <span className="code-cm"># Scale dot-product attention</span>{'\n'}
-        Q = self.W_q(x){'\n'}
-        K = self.W_k(x){'\n'}
-        V = self.W_v(x){'\n'}
-        scores = Q @ K.transpose(<span className="code-num">-2</span>, <span className="code-num">-1</span>){'\n'}
-        scores = scores / self.d_k ** <span className="code-num">0.5</span>{'\n'}
-        attn = torch.softmax(scores, dim=<span className="code-num">-1</span>){'\n'}
-        <span className="code-kw">return</span> attn @ V
-                    </pre>
-                  </div>
-
-                  <div className="mt-2 mb-1 px-4 py-3 bg-white/[0.02] rounded-xl border border-[var(--border-subtle)] font-serif text-base text-paper text-center tracking-wide">
+                  <div className="mt-3 mb-1 px-4 py-3 bg-[var(--overlay-subtle)] rounded-xl border border-[var(--border-subtle)] font-serif text-base text-paper text-center tracking-wide">
                     Attention(Q, K, V) = softmax(QKᵀ / √dₖ) · V
                   </div>
                 </div>
               </div>
 
               <div className="flex gap-2.5 items-start flex-row-reverse">
-                <div className="w-6 h-6 rounded-full shrink-0 flex items-center justify-center text-[10px] font-semibold bg-white/5 text-txt-secondary">Y</div>
+                <div className="w-6 h-6 rounded-full shrink-0 flex items-center justify-center text-[10px] font-semibold bg-[var(--overlay-medium)] text-txt-secondary">Y</div>
                 <div className="px-3.5 py-2.5 rounded-2xl text-[13px] leading-relaxed max-w-[85%] bg-sage/10 text-paper border border-sage/15">
                   What's the computational complexity?
                 </div>
@@ -104,13 +74,13 @@ export default function TextWorkspace() {
                   Context Sources
                 </div>
                 <div className="p-3 flex flex-col gap-2">
-                  <div className="flex items-center gap-2 px-2.5 py-1.5 bg-white/[0.02] rounded-lg text-[12px] text-txt-secondary">
+                  <div className="flex items-center gap-2 px-2.5 py-1.5 bg-[var(--overlay-subtle)] rounded-lg text-[12px] text-txt-secondary">
                     <svg className="w-3.5 h-3.5 text-sage shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" />
                     </svg>
                     attention_is_all_you_need.pdf
                   </div>
-                  <div className="flex items-center gap-2 px-2.5 py-1.5 bg-white/[0.02] rounded-lg text-[12px] text-txt-secondary">
+                  <div className="flex items-center gap-2 px-2.5 py-1.5 bg-[var(--overlay-subtle)] rounded-lg text-[12px] text-txt-secondary">
                     <svg className="w-3.5 h-3.5 text-sage shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" />
                     </svg>

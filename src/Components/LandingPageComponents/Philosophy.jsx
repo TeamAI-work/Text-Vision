@@ -13,7 +13,7 @@ export default function Philosophy() {
   });
   const y = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
-  const words = fullText.split(' ');
+  const characters = Array.from(fullText);
 
   return (
     <section
@@ -26,7 +26,7 @@ export default function Philosophy() {
           className="font-serif text-3xl md:text-4xl lg:text-5xl leading-snug text-paper max-w-[680px] mx-auto text-center tracking-tight"
           ref={ref}
         >
-          {words.map((word, i) => (
+          {characters.map((char, i) => (
             <motion.span
               key={i}
               className="inline-block"
@@ -34,11 +34,12 @@ export default function Philosophy() {
               animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
               transition={{
                 duration: 0.6,
-                delay: i * 0.055,
+                delay: i * 0.02, // Reduced delay for character-by-character
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              {word}{i < words.length - 1 ? '\u00A0' : ''}
+              {/* If the character is a space, render a non-breaking space entity */}
+              {char === " " ? "\u00A0" : char}
             </motion.span>
           ))}
         </p>

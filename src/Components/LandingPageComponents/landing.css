@@ -24,12 +24,12 @@
 /* Vision gradients */
 .vision-gradient-top {
   position: absolute; top: 0; left: 0; right: 0; height: 120px;
-  background: linear-gradient(to bottom, var(--color-obsidian), var(--color-elevated));
+  background: linear-gradient(to bottom, var(--obsidian), var(--elevated));
   pointer-events: none;
 }
 .vision-gradient-bottom {
   position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
-  background: linear-gradient(to top, var(--color-obsidian), var(--color-elevated));
+  background: linear-gradient(to top, var(--obsidian), var(--elevated));
   pointer-events: none;
 }
 

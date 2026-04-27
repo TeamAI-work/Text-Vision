@@ -14,9 +14,9 @@ export default function LandingPage() {
       <Header />
       <main>
         <Hero />
-        <Philosophy />
         <TextWorkspace />
         <VisionWorkspace />
+        <Philosophy />
         <Working />
         <BentoGrid />
         <Footer />

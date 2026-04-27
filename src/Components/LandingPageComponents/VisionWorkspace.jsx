@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Reveal } from './useScrollReveal';
-import image from "../../assets/image.png"
+import image from "../../assets/Bio.png"
 
 export default function VisionWorkspace() {
   const containerRef = useRef(null);
@@ -32,9 +32,9 @@ export default function VisionWorkspace() {
             {/* Left: Image Viewer */}
             <div className="p-6 lg:p-8 border-b lg:border-b-0 lg:border-r border-[var(--border-subtle)] bg-obsidian relative flex flex-col">
               <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-2 text-xs font-mono text-txt-muted bg-white/[0.03] px-3 py-1.5 rounded-lg border border-[var(--border-subtle)]">
+                <div className="flex items-center gap-2 text-xs font-mono text-txt-muted bg-[var(--overlay-medium)] px-3 py-1.5 rounded-lg border border-[var(--border-subtle)]">
                   <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
-                  architecture-v2.png
+                  Biology.png
                 </div>
                 <div className="w-2.5 h-2.5 rounded-full bg-sage animate-pulse shadow-[0_0_8px_rgba(139,168,142,0.8)]" />
               </div>
@@ -49,7 +49,7 @@ export default function VisionWorkspace() {
                     animate={{ top: '35%', left: '20%', width: '45%', height: '35%', opacity: 1 }}
                     transition={{ duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
                   >
-                    <div className="absolute -top-3 -right-2 bg-sage text-obsidian text-[9px] font-bold px-1.5 py-0.5 rounded shadow">DB CLUSTER</div>
+                    <div className="absolute -top-3 -right-2 bg-sage text-obsidian text-[9px] font-bold px-1.5 py-0.5 rounded shadow">Scanning</div>
                   </motion.div>
                 )}
               </div>
@@ -64,9 +64,9 @@ export default function VisionWorkspace() {
                   animate={isImageInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.4 }}
                 >
-                  <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-xs font-medium text-txt-secondary shrink-0">Y</div>
+                  <div className="w-7 h-7 rounded-full bg-[var(--overlay-medium)] flex items-center justify-center text-xs font-medium text-txt-secondary shrink-0">Y</div>
                   <div className="px-4 py-3 bg-sage/10 text-paper text-[13px] leading-relaxed rounded-2xl max-w-[85%] border border-sage/15 shadow-sm">
-                    Can you identify the core database components in this diagram and extract them as JSON?
+                    Identify this diagram and explain its key components and their functions in two clear sentences.
                   </div>
                 </motion.div>
 
@@ -76,32 +76,14 @@ export default function VisionWorkspace() {
                   transition={{ delay: 1.2, duration: 0.5 }}
                 >
                   <div className="w-7 h-7 rounded-full bg-[var(--sage-glow)] border border-sage/30 flex text-sage items-center justify-center text-xs font-bold shrink-0">A</div>
-                  <div className="px-4 py-3.5 bg-white/[0.03] border border-[var(--border-subtle)] text-[#d4d4d8] text-[13px] leading-relaxed rounded-2xl max-w-[90%] shadow-sm w-full">
-                    <p className="mb-3 text-txt-secondary">I see a schematic of the Transformer architecture, which is the foundational engine that allows me to process your prompts and generate these words through a dual-stack system of Encoders (to "read" and understand you) and Decoders (to "write" my response).
-                      <br /> <br /> The image highlights the Multi-Head Attention blocks, which act like my internal spotlight, allowing me to focus on the most important words in your message regardless of how long or complex it is.</p>
-
-                    {/* <div className="bg-obsidian rounded-xl border border-[var(--border-subtle)] overflow-hidden">
-                      <div className="px-3 py-1.5 text-[10px] text-txt-muted border-b border-[var(--border-subtle)] flex items-center justify-between">
-                        <span>json</span>
-                        <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                      </div>
-                      <pre className="p-3 font-mono text-[11px] text-sage overflow-x-auto">
-{`{
-  "cluster": {
-    "primary": "PostgreSQL",
-    "cache": "Redis",
-    "storage": "S3 Bucket"
-  },
-  "status": "active",
-  "nodes": 3
-}`}
-                      </pre>
-                    </div> */}
+                  <div className="px-4 py-3.5 bg-[var(--overlay-subtle)] border border-[var(--border-subtle)] text-txt-secondary text-[13px] leading-relaxed rounded-2xl max-w-[90%] shadow-sm w-full">
+                    <p className="mb-3 text-txt-secondary">
+                      This image is a longitudinal section (L.S.) of a flower, mapping out the reproductive "hardware" that allows plants to create life.
+                      <br /> <br /> In this diagram, I see the Stamen (the male parts like the Anther and Filament) acting as the pollen producers, while the central Pistil (Stigma, Style, and Ovary) serves as the landing pad and incubation chamber for seeds.
+                    </p>
                   </div>
                 </motion.div>
-
               </div>
-
               {/* Fake typing indicator bar */}
               <motion.div className="mt-6 pt-5 border-t border-[var(--border-subtle)]"
                 initial={{ opacity: 0 }}

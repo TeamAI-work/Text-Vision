@@ -31,15 +31,15 @@ export default function Working() {
 
         <div className="relative max-w-[1000px] mx-auto">
           {/* Subtle horizontal connecting line on desktop */}
-          <div className="hidden lg:block absolute top-[64px] left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-[var(--border-medium)] to-transparent z-0" />
+          {/* <div className="hidden lg:block absolute top-[64px] left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-[var(--border-medium)] to-transparent z-0" /> */}
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10 relative z-10">
             {steps.map((step, i) => (
               <motion.div key={step.number} 
-                className="relative p-8 rounded-3xl border border-[var(--border-subtle)] bg-obsidian hover:bg-slate/40 transition-all duration-500 overflow-hidden group shadow-2xl shadow-black/50"
+                className="relative p-8 rounded-3xl border border-[var(--border-subtle)] bg-obsidian hover:bg-slate/40 transition-all duration-500 overflow-hidden group shadow-2xl shadow-[var(--shadow-color)]"
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.2 + i * 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                // transition={{ delay: 0.2 + i * 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -8 }}
               >
                 {/* Background Number */}
@@ -48,7 +48,7 @@ export default function Working() {
                 </div>
                 
                 {/* Icon Container */}
-                <div className="w-14 h-14 rounded-2xl bg-white/[0.02] border border-[var(--border-subtle)] flex items-center justify-center text-sage mb-8 group-hover:scale-110 group-hover:bg-sage/[0.08] transition-all duration-500 relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-[var(--overlay-subtle)] border border-[var(--border-subtle)] flex items-center justify-center text-sage mb-8 group-hover:scale-110 group-hover:bg-sage/[0.08] transition-all duration-500 relative z-10">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">{step.icon}</svg>
                 </div>
 

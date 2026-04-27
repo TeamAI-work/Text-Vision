@@ -1,31 +1,67 @@
 @import 'tailwindcss';
 
 @theme {
-  /* Colors - hex only for proper Tailwind utility generation */
-  --color-obsidian: #0D0D0E;
-  --color-slate: #242426;
+  /* Colors - using variables for dynamic theming */
+  --color-obsidian: var(--obsidian);
+  --color-slate: var(--slate);
   --color-sage: #8BA88E;
   --color-sage-dim: #6b8a6e;
-  --color-paper: #FBFBF9;
-  --color-mist: #EBEAE4;
-  --color-charcoal: #1A1C1E;
-  --color-elevated: #1a1a1c;
-  --color-txt-secondary: #a0a0a3;
-  --color-txt-muted: #6b6b6e;
+  --color-paper: var(--paper);
+  --color-mist: var(--mist);
+  --color-charcoal: var(--charcoal);
+  --color-elevated: var(--elevated);
+  --color-txt-secondary: var(--txt-secondary);
+  --color-txt-muted: var(--txt-muted);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-medium: var(--border-medium);
+  --color-overlay-subtle: var(--overlay-subtle);
+  --color-overlay-medium: var(--overlay-medium);
+  --color-sage-glow: var(--sage-glow);
 
   /* Fonts */
   --font-serif: 'DM Serif Display', 'Georgia', serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* ===== Non-theme custom properties (for CSS-only use) ===== */
+/* ===== Theme Variables ===== */
 :root {
+  --obsidian: #0D0D0E;
+  --slate: #242426;
+  --paper: #FBFBF9;
+  --mist: #EBEAE4;
+  --charcoal: #1A1C1E;
+  --elevated: #1a1a1c;
+  --txt-secondary: #a0a0a3;
+  --txt-muted: #6b6b6e;
+
+  --gms-text-color: #ffffff;
+  --gms-logo-color: #FF0000;
   --sage-glow: rgba(139, 168, 142, 0.15);
   --border-subtle: rgba(255, 255, 255, 0.06);
   --border-medium: rgba(255, 255, 255, 0.1);
+  --overlay-subtle: rgba(0, 0, 0, 0.2);
+  --overlay-medium: rgba(0, 0, 0, 0.4);
+  --shadow-color: rgba(0, 0, 0, 0.6);
 }
 
+.light {
+  --obsidian: #FBFBF9;
+  --paper: #0D0D0E;
+  --slate: #EBEAE4;
+  --mist: #242426;
+  --charcoal: #F1F0E8;
+  --elevated: #FFFFFF;
+  --txt-secondary: #4A4A4D;
+  --txt-muted: #71717A;
 
+  --gms-text-color: #0D0D0E;
+  --sage-glow: rgba(139, 168, 142, 0.1);
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --border-medium: rgba(0, 0, 0, 0.08);
+  --overlay-subtle: rgba(0, 0, 0, 0.08);
+  --overlay-medium: rgba(0, 0, 0, 0.14);
+  --shadow-color: rgba(0, 0, 0, 0.12);
+}
 
 html {
   scroll-behavior: smooth;
@@ -35,10 +71,11 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-obsidian);
-  color: var(--color-paper);
+  background-color: var(--obsidian);
+  color: var(--paper);
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -74,6 +111,31 @@ input {
 }
 
 ::selection {
-  background: var(--color-sage);
-  color: var(--color-obsidian);
+  background: #8BA88E;
+  color: #0D0D0E;
+}
+
+/* ===== Chat Animations ===== */
+@keyframes thinking-glow {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-thinking-glow {
+  background: linear-gradient(
+    90deg,
+    #616161 0%,
+    #ffffff 40%,
+    #696969 60%,
+    #616161 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: thinking-glow 2s linear infinite;
 }

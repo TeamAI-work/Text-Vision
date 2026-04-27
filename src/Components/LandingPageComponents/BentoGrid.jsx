@@ -33,7 +33,7 @@ export default function BentoGrid() {
 
         <div className="flex flex-wrap justify-center gap-px bg-[var(--border-subtle)] border border-[var(--border-subtle)] rounded-[20px] overflow-hidden">
           {features.map((feature, i) => (
-            <motion.div key={feature.title} className="bg-obsidian p-8 lg:p-10 relative group hover:bg-white/[0.02] flex-grow basis-[100%] sm:basis-[calc(50%-1px)] lg:basis-[calc(33.333%-1px)] max-w-full transition-all duration-500"
+            <motion.div key={feature.title} className="bg-obsidian p-8 lg:p-10 relative group hover:bg-[var(--overlay-subtle)] flex-grow basis-[100%] sm:basis-[calc(50%-1px)] lg:basis-[calc(33.333%-1px)] max-w-full transition-all duration-500"
               id={`feature-${feature.title.toLowerCase().replace(/\s+/g, '-')}`}
               initial={{ opacity: 0, y: 25 }} animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
