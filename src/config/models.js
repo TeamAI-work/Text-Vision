@@ -15,9 +15,9 @@ export const MODELS = [
     provider: "Cloud"
   },
   {
-    id: "glm-5.1:cloud",
-    name: "GLM 5.1",
-    shortName: "GLM-5.1",
+    id: "glm-4.6:cloud",
+    name: "GLM 4.6",
+    shortName: "GLM-4.6",
     description: "Advanced reasoning and thinking",
     provider: "Cloud"
   }
@@ -26,7 +26,7 @@ export const MODELS = [
 export const DEFAULT_MODEL = MODELS[0];
 
 export const FEATURE_MODELS = {
-  THINKING: "glm-5.1:cloud",
+  THINKING: "glm-4.6:cloud",
   RESEARCH: "deepseek-v3.1:671b-cloud",
   WEB_SEARCH: "gpt-oss:120b-cloud",
   DEFAULT: "deepseek-v3.1:671b-cloud"

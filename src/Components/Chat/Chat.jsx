@@ -93,7 +93,7 @@ export default function Chat({
               e.currentTarget.style.borderColor = "transparent";
             }}
           >
-            <div className="text-[17px] font-medium flex items-center gap-2" style={{ fontFamily: "'DM Serif Display', Georgia, serif", letterSpacing: "-0.01em" }}>
+            <div className="text-[17px] font-medium flex items-center gap-2" style={{ fontFamily: "Inter, -apple-system, sans-serif", letterSpacing: "-0.01em" }}>
               aura<span style={{ color: "#8BA88E" }}>.</span>
               <span className="text-[11px] font-normal px-2 py-0.5 rounded-full" style={{ color: "var(--txt-secondary)", fontFamily: "Inter, sans-serif", background: "var(--overlay-subtle)" }}>
                 {MODELS.find(m => m.id === selectedModel)?.shortName || ""}
@@ -178,7 +178,7 @@ export default function Chat({
                   </motion.div>
                   <h2
                     className="text-4xl mb-3 tracking-tight text-center"
-                    style={{ fontFamily: "'DM Serif Display', Georgia, serif", color: "var(--paper)", letterSpacing: "-0.02em", lineHeight: 1.1 }}
+                    style={{ fontFamily: "Inter, -apple-system, sans-serif", color: "var(--paper)", letterSpacing: "-0.02em", lineHeight: 1.1 }}
                   >
                     How can I help you?
                   </h2>

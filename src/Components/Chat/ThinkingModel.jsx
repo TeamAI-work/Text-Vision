@@ -53,12 +53,12 @@ export default function ThinkingModel({ text, isStreaming, onClose }) {
                     </div>
                     <div>
                         <div className="flex items-center gap-2">
-                            <h3
-                                className="text-[13px] font-medium tracking-tight"
+                            <h1
+                                className="text-[13px] font-semibold tracking-wide"
                                 style={{ color: "var(--paper)" }}
                             >
                                 Thinking Process
-                            </h3>
+                            </h1>
                             {isStreaming && (
                                 <span className="flex gap-0.5">
                                     <span className="w-1 h-1 rounded-full animate-bounce [animation-delay:-0.3s]" style={{ background: "#8BA88E" }} />
@@ -68,7 +68,7 @@ export default function ThinkingModel({ text, isStreaming, onClose }) {
                             )}
                         </div>
                         <p
-                            className="text-[10px] font-medium mt-0.5 uppercase tracking-widest"
+                            className="text-[10px] mt-0.5 tracking-widest"
                             style={{ color: "var(--txt-muted)" }}
                         >
                             {isStreaming ? "Synthesizing Response" : "Logical Path Completed"}

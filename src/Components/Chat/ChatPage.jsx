@@ -158,7 +158,7 @@ export default function ChatPage() {
                                     onClick={() => setModelChangeOpen(!modelChangeOpen)}
                                     className="flex items-center gap-1.5 px-2 py-1 rounded-lg hover:bg-white/5 transition-all"
                                 >
-                                    <span className="text-xs font-serif tracking-tight">aura<span className="text-sage">.</span></span>
+                                    <span className="text-xs font-medium tracking-tight">aura<span className="text-sage">.</span></span>
                                     <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-white/5 text-txt-muted">
                                         {MODELS.find(m => m.id === selectedModel)?.shortName}
                                     </span>
@@ -216,23 +216,43 @@ export default function ChatPage() {
                         />
                     </div>
 
-                    {/* Thinking Sidebar */}
+                    {/* Thinking Panel — side panel on desktop, full-screen overlay on mobile */}
                     <AnimatePresence>
                         {thinkngText.trim() !== "" && (
-                            <motion.div
-                                key="thinking-panel"
-                                initial={{ width: 0, opacity: 0 }}
-                                animate={{ width: 360, opacity: 1 }}
-                                exit={{ width: 0, opacity: 0 }}
-                                transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1.0] }}
-                                className="shrink-0 h-full overflow-hidden z-10"
-                                style={{
-                                    borderLeft: "1px solid var(--border-subtle)",
-                                    background: "var(--charcoal)"
-                                }}
-                            >
-                                <ThinkingModel text={storedThinkingText} isStreaming={isThinking} onClose={() => setThinkngText("")} />
-                            </motion.div>
+                            isMobile ? (
+                                // Mobile: full-screen overlay
+                                <motion.div
+                                    key="thinking-overlay"
+                                    initial={{ opacity: 0, y: "100%" }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: "100%" }}
+                                    transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1.0] }}
+                                    className="fixed inset-0 z-[200] flex flex-col"
+                                    style={{ background: "var(--charcoal)" }}
+                                >
+                                    <ThinkingModel
+                                        text={storedThinkingText}
+                                        isStreaming={isThinking}
+                                        onClose={() => setThinkngText("")}
+                                    />
+                                </motion.div>
+                            ) : (
+                                // Desktop: animated side panel
+                                <motion.div
+                                    key="thinking-panel"
+                                    initial={{ width: 0, opacity: 0 }}
+                                    animate={{ width: 360, opacity: 1 }}
+                                    exit={{ width: 0, opacity: 0 }}
+                                    transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1.0] }}
+                                    className="shrink-0 h-full overflow-hidden z-10"
+                                    style={{
+                                        borderLeft: "1px solid var(--border-subtle)",
+                                        background: "var(--charcoal)"
+                                    }}
+                                >
+                                    <ThinkingModel text={storedThinkingText} isStreaming={isThinking} onClose={() => setThinkngText("")} />
+                                </motion.div>
+                            )
                         )}
                     </AnimatePresence>
                 </div>

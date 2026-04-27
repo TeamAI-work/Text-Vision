@@ -255,21 +255,16 @@ export function useChat({ initialChatId } = {}) {
             let done = false;
             let rawBuffer = "";
             let finalDisplayContent = "";
-            const aiMessageId = Date.now() + 1;
+            let aiMessageId = null;
+            let contentStarted = false;
 
             setThinkngText("");
             setStoredThinkingText("");
-            let firstChunkReceived = false;
 
             while (!done) {
                 const { value, done: readerDone } = await reader.read();
                 done = readerDone;
                 if (value) {
-                    if (!firstChunkReceived) {
-                        setActiveMessages(prev => [...prev, { id: aiMessageId, role: "ai", content: "", thinking: "" }]);
-                        setIsThinking(false);
-                        firstChunkReceived = true;
-                    }
                     const chunk = decoder.decode(value, { stream: true });
                     rawBuffer += chunk;
                     
@@ -290,10 +285,21 @@ export function useChat({ initialChatId } = {}) {
                     }
                     
                     finalDisplayContent = parsedContent;
-                    setActiveMessages(prev => prev.map(msg => msg.id === aiMessageId
-                        ? { ...msg, content: parsedContent, thinking: parsedThink.trim() || msg.thinking }
-                        : msg
-                    ));
+
+                    // Keep thinking animation running until real response text appears
+                    if (!contentStarted && parsedContent.trim() !== "") {
+                        aiMessageId = Date.now() + 1;
+                        setActiveMessages(prev => [...prev, { id: aiMessageId, role: "ai", content: "", thinking: "" }]);
+                        setIsThinking(false);
+                        contentStarted = true;
+                    }
+
+                    if (contentStarted && aiMessageId !== null) {
+                        setActiveMessages(prev => prev.map(msg => msg.id === aiMessageId
+                            ? { ...msg, content: parsedContent, thinking: parsedThink.trim() || msg.thinking }
+                            : msg
+                        ));
+                    }
                     if (parsedThink.trim() !== "") {
                         setThinkngText(parsedThink.trim());
                         setStoredThinkingText(parsedThink.trim());
